@@ -43,6 +43,9 @@ Plugin 'scrooloose/nerdcommenter'
 " Syntastic
 Plugin 'scrooloose/syntastic'
 
+" CloseTag
+Plugin 'vim-scripts/closetag.vim'
+
 " All plugins must be added before this line
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -137,8 +140,3 @@ let g:syntastic_python_checkers = ['pylint']
 " let g:syntastic_python_python_exec = 'C:\Python34'
 
 
-"inoremap { {}<left>
-"inoremap ( ()<left>
-"inoremap ' ''<left>
-"inoremap " ""<left>
-"inoremap ''' '''<cr>'''<left>
