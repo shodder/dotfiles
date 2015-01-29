@@ -49,6 +49,9 @@ Plugin 'vim-scripts/closetag.vim'
 " Airline
 Plugin 'bling/vim-airline'
 
+" Window swapping
+Plugin 'wesQ3/vim-windowswap'
+
 " All plugins must be added before this line
 call vundle#end()		" required
 filetype plugin indent on	" required
