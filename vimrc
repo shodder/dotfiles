@@ -50,7 +50,7 @@ Plugin 'vim-scripts/closetag.vim'
 Plugin 'bling/vim-airline'
 
 " Window swapping
-Plugin 'wesQ3/vim-windowswap'
+"Plugin 'wesQ3/vim-windowswap'
 
 " All plugins must be added before this line
 call vundle#end()		" required
@@ -131,7 +131,7 @@ nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:$
 
 " Make it obvious where 80 characters is
-set textwidth=80
+"set textwidth=80
 " set colorcolumn=+1
 
 " Open new splits panes to right and bottom
