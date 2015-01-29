@@ -1,5 +1,17 @@
 # ignore colors
-colors
+colors/
 
 # ignore bundles
-bundle
+bundle/
+
+# ignore swaps
+swap/
+
+# ignore backup
+backup/
+
+# ignore undo
+undo/
+
+# ignore viminfo
+viminfo
