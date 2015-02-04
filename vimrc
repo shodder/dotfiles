@@ -72,8 +72,8 @@ set encoding=utf-8
 colorscheme slate
 
 if has("gui_running")
-  "set guioptions -=m  " hide the menu bar
-  "set guioptions -=T  " hide the toolbar
+  set guioptions -=m  " hide the menu bar
+  set guioptions -=T  " hide the toolbar
   set guioptions -=L
   set guioptions -=l
   set guioptions -=R
