@@ -80,7 +80,7 @@ if has("gui_running")
   set guioptions -=r
   colorscheme base16-monokai
   if has('unix')
-    set guifont=Ubuntu\ Mono\ 14
+    set guifont=Ubuntu\ Mono\ 16
   else
     set guifont=Ubuntu_Mono:h13
   endif
