@@ -13,6 +13,9 @@ call vundle#begin()
 " Let vundle manage vundle.
 Plugin 'gmarik/Vundle.vim'
 
+" GO lang
+Plugin 'fatih/vim-go'
+
 " fugitive - best git interface for vim
 Plugin 'tpope/vim-fugitive'
 
