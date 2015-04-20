@@ -49,6 +49,9 @@ Plugin 'vim-scripts/closetag.vim'
 " Airline
 Plugin 'bling/vim-airline'
 
+" GO plugin
+Plugin 'fatih/vim-go'
+
 " Window swapping
 "Plugin 'wesQ3/vim-windowswap'
 
@@ -189,3 +192,20 @@ if exists("+undofile")
   set undodir+=~/.vim/undo//
   set undofile
 endif
+
+" Disable arrow keys. Wow!!!
+nmap <up> <Nop>
+nmap <left> <Nop>
+nmap <right> <Nop>
+nmap <down> <Nop>
+
+imap <up> <Nop>
+imap <left> <Nop>
+imap <right> <Nop>
+imap <down> <Nop>
+
+vmap <up> <Nop>
+vmap <left> <Nop>
+vmap <right> <Nop>
+vmap <down> <Nop>
+
