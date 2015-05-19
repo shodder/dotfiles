@@ -1,6 +1,5 @@
 set nocompatible
 
-
 " ----------------------------------------------------------------
 " vundle configuration starts here
 
@@ -110,7 +109,10 @@ vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 
 " nerdtree
+" Set NERDTree to work in current dir
+let g:NERDTreeChDirMode=2
 nmap <leader>ne :NERDTree<cr>
+nmap <leader>n :NERDTreeToggle<cr>
 
 set number		    " show line numbers
 set backspace=2		" Backspace deletes in insert mode
@@ -226,3 +228,6 @@ let vala_no_tab_space_error = 1
 
 " Minimum lines used for comment syncing (default 50)
 "let vala_minlines = 120
+"
+" shell
+"set shell=/bin/zsh\ -i
