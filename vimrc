@@ -74,7 +74,7 @@ autocmd! bufwritepost .vimrc source %
 syntax on
 set antialias
 set encoding=utf-8
-colorscheme base16-monokai
+colorscheme slate
 
 if has("gui_running")
   set guioptions -=m  " hide the menu bar
