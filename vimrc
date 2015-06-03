@@ -94,6 +94,23 @@ endif
 " neocomplete on
 let g:neocomplete#enable_at_startup=1
 
+"" syntastic conf
+" syntastic should use python 3
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height=5
+"let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_checkers = ['pylint']
+" let g:syntastic_python_python_exec = 'C:\Python34'
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+
 " Better copy & paste
 set pastetoggle=<F2>
 set clipboard=unnamed
@@ -148,18 +165,6 @@ set listchars=tab:▸\ ,eol:$
 " Open new splits panes to right and bottom
 set splitbelow
 set splitright
-
-
-"" syntastic conf
-" syntastic should use python 3
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_checkers = ['pylint']
-" let g:syntastic_python_python_exec = 'C:\Python34'
 
 
 " Save your backups to a less annoying place than the current directory.
