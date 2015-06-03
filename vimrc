@@ -30,6 +30,9 @@ Plugin 'chriskempson/base16-vim'
 " YCM - a fast, as-you-type, fuzzy-search code completion engine
 "Plugin 'Valloric/YouCompleteMe'
 
+" Neocomplete - code completion
+Plugin 'Shougo/neocomplete.vim'
+
 " Solarized colours
 Plugin 'altercation/vim-colors-solarized'
 
@@ -71,7 +74,7 @@ autocmd! bufwritepost .vimrc source %
 syntax on
 set antialias
 set encoding=utf-8
-colorscheme slate
+colorscheme base16-monokai
 
 if has("gui_running")
   set guioptions -=m  " hide the menu bar
@@ -87,6 +90,9 @@ if has("gui_running")
     set guifont=Ubuntu_Mono:h13
   endif
 endif
+
+" neocomplete on
+let g:neocomplete#enable_at_startup=1
 
 " Better copy & paste
 set pastetoggle=<F2>
@@ -151,6 +157,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_loc_list_height=5
+let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ['pylint']
 " let g:syntastic_python_python_exec = 'C:\Python34'
 
