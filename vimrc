@@ -54,6 +54,9 @@ Plugin 'bling/vim-airline'
 " GO plugin
 Plugin 'fatih/vim-go'
 
+" Python syntax
+Plugin 'hdima/python-syntax'
+
 " Window swapping
 "Plugin 'wesQ3/vim-windowswap'
 
@@ -93,12 +96,16 @@ endif
 
 " neocomplete on
 let g:neocomplete#enable_at_startup=1
+let g:neocomplete#enable_auto_close_preview=1
 
 "" syntastic conf
 " syntastic should use python 3
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" Python syntaz
+let python_highlight_all = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -117,6 +124,9 @@ set clipboard=unnamed
 
 " Rebind <leader>
 let mapleader = ","
+
+" clear white space
+nmap <leader>w :%s/\s\+$//<CR>
 
 " Map Ctrl+<movement> key to navigate windows
 map <c-j> <c-w>j
@@ -223,6 +233,7 @@ vmap <left> <Nop>
 vmap <right> <Nop>
 vmap <down> <Nop>
 
+let python_highlight_all = 1
 
 " Vala highlight: see https://wiki.gnome.org/Projects/Vala/Vim
 " Disable valadoc syntax highlight
