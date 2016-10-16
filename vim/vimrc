@@ -1,9 +1,14 @@
+
 set nocompatible
 
 " ----------------------------------------------------------------
 " vundle configuration starts here
 
 filetype off			" required
+
+if has('unix')
+  cd ~/workspace
+endif
 
 " set the runtime path to include Vundle, and initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -104,7 +109,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Python syntaz
+" Python syntax
 let python_highlight_all = 1
 
 let g:syntastic_always_populate_loc_list = 1
@@ -115,8 +120,13 @@ let g:syntastic_loc_list_height=5
 "let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ['pylint']
 " let g:syntastic_python_python_exec = 'C:\Python34'
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_error_symbol = "?"
+let g:syntastic_warning_symbol = "?"
+
+" JavaScript syntax
+"let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_javascript_checkers = ['jscs']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Better copy & paste
 set pastetoggle=<F2>
@@ -166,7 +176,7 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 " toggle invisible characters
 nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:$
+set listchars=tab:?\ ,eol:$
 
 " Make it obvious where 80 characters is
 "set textwidth=80
