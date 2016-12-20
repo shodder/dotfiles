@@ -173,6 +173,9 @@ set expandtab     " use spaces instead of tab characters
 " Add tabs specifically for python
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
+" Add tabs specifically for PowerShell files
+autocmd BufRead,BufNewFile *.ps1,*.psm setlocal expandtab shiftwidth=4 softtabstop=4
+
 " toggle invisible characters
 nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
