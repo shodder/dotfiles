@@ -6,10 +6,6 @@ set nocompatible
 
 filetype off			" required
 
-if has('unix')
-  cd ~/workspace
-endif
-
 " set the runtime path to include Vundle, and initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -72,61 +68,12 @@ filetype plugin indent on	" required
 " vundle configuration ends here
 " ----------------------------------------------------------------
 
+" ----------------------------------------------------------------
+" General Settings
+
 " Autoreload .vimrc on edit
 autocmd! bufwritepost .vimrc source %
-
-" flake8
-" let g:flake8_builtins="_,apply"           " Add builtins
-" autocmd BufWritePost *.py call Flake8()   " Run on saving a python file
-
-syntax on
-set antialias
-set encoding=utf-8
-colorscheme slate
-
-if has("gui_running")
-  set guioptions -=m  " hide the menu bar
-  set guioptions -=T  " hide the toolbar
-  set guioptions -=L
-  set guioptions -=l
-  set guioptions -=R
-  set guioptions -=r
-  colorscheme base16-monokai
-  if has('unix')
-    set guifont=Ubuntu\ Mono\ 13
-  else
-    set guifont=Ubuntu_Mono:h13
-  endif
-endif
-
-" neocomplete on
-let g:neocomplete#enable_at_startup=1
-let g:neocomplete#enable_auto_close_preview=1
-
-"" syntastic conf
-" syntastic should use python 3
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" Python syntax
-let python_highlight_all = 1
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height=5
-"let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_checkers = ['pylint']
-" let g:syntastic_python_python_exec = 'C:\Python34'
-let g:syntastic_error_symbol = "?"
-let g:syntastic_warning_symbol = "?"
-
-" JavaScript syntax
-"let g:syntastic_javascript_checkers = ['jshint']
-"let g:syntastic_javascript_checkers = ['jscs']
-let g:syntastic_javascript_checkers = ['eslint']
+autocmd! bufwritepost .vim/vimrc source %
 
 " Better copy & paste
 set pastetoggle=<F2>
@@ -134,6 +81,38 @@ set clipboard=unnamed
 
 " Rebind <leader>
 let mapleader = ","
+
+" Disable arrow keys. Wow!!!
+nmap <up> <Nop>
+nmap <left> <Nop>
+nmap <right> <Nop>
+nmap <down> <Nop>
+imap <up> <Nop>
+imap <left> <Nop>
+imap <right> <Nop>
+imap <down> <Nop>
+vmap <up> <Nop>
+vmap <left> <Nop>
+vmap <right> <Nop>
+vmap <down> <Nop>
+
+" Smash escape (thanks Roy!)
+inoremap jk <esc>
+inoremap kj <esc>
+
+" toggle invisible characters
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:?\ ,eol:$
+
+" Make it obvious where 80 characters is
+"set textwidth=80
+" set colorcolumn=+1
+
+" Open new splits panes to right and bottom
+set splitbelow
+set splitright
 
 " clear white space
 nmap <leader>w :%s/\s\+$//<CR>
@@ -151,44 +130,52 @@ vnoremap <Leader>s :sort<CR>
 vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 
-" nerdtree
-" Set NERDTree to work in current dir
-let g:NERDTreeChDirMode=2
-nmap <leader>ne :NERDTree<cr>
-nmap <leader>n :NERDTreeToggle<cr>
+" Set line numbers
+set number
 
-set number		    " show line numbers
-set backspace=2		" Backspace deletes in insert mode
-set ruler		      " display cursor position at all times
-set showcmd		    " display incomplete commands
-set laststatus=2	" Always display the status line
+" display cursor position at all times
+set ruler		      
 
-" Softtabs, 2 spaces
-set tabstop=2     " size of hard stop
-set shiftwidth=2  " size of indent
+" display incomplete commands
+set showcmd		    
+
+" Always display the status line
+set laststatus=2
+
+" set tabs
+set tabstop=4     " size of hard stop
+set shiftwidth=4  " size of indent
+set backspace=2   " Backspace deletes in insert mode
 set smarttab      " insert indent instead of tab at beginning of line
-set shiftround
-set expandtab     " use spaces instead of tab characters
+set shiftround    " To help when line wrapping?
 
-" Add tabs specifically for python
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+" Map wb to open curent file in web browser
+nmap <leader>b :silent !xdg-open % &<CR>
 
-" Add tabs specifically for PowerShell files
-autocmd BufRead,BufNewFile *.ps1,*.psm,*.psm1 setlocal expandtab shiftwidth=4 softtabstop=4
+" Syntax highlighting on
+syntax on
 
-" toggle invisible characters
-nmap <leader>l :set list!<CR>
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:?\ ,eol:$
+" Default encoding
+set encoding=utf-8
 
-" Make it obvious where 80 characters is
-"set textwidth=80
-" set colorcolumn=+1
-
-" Open new splits panes to right and bottom
-set splitbelow
-set splitright
-
+" Hide those menus if we are in gvim or similar
+if has("gui_running")
+  set guioptions -=m  " hide the menu bar
+  set guioptions -=T  " hide the toolbar
+  set guioptions -=L
+  set guioptions -=l
+  set guioptions -=R
+  set guioptions -=r
+  colorscheme base16-monokai
+  if has('unix')
+    set guifont=Ubuntu\ Mono\ 13
+  else
+    set guifont=Ubuntu_Mono:h13
+  endif
+else
+  " Terminal colourscheme
+  colorscheme slate
+endif
 
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
@@ -230,40 +217,83 @@ if exists("+undofile")
   set undofile
 endif
 
-" Disable arrow keys. Wow!!!
-nmap <up> <Nop>
-nmap <left> <Nop>
-nmap <right> <Nop>
-nmap <down> <Nop>
+" ----------------------------------------------------------------
+" Plugin Settings
 
-imap <up> <Nop>
-imap <left> <Nop>
-imap <right> <Nop>
-imap <down> <Nop>
+" statusline settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-vmap <up> <Nop>
-vmap <left> <Nop>
-vmap <right> <Nop>
-vmap <down> <Nop>
+" nerdtree
+" Set NERDTree to work in current dir
+let g:NERDTreeChDirMode=2
+nmap <leader>ne :NERDTree<cr>
+nmap <leader>n :NERDTreeToggle<cr>
 
+" ----------------------------------------------------------------
+" Syntax Settings
+
+" neocomplete on
+let g:neocomplete#enable_at_startup=1
+let g:neocomplete#enable_auto_close_preview=1
+
+
+"" syntastic conf
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height=5
+let g:syntastic_error_symbol = "?"
+let g:syntastic_warning_symbol = "?"
+
+"vim
+autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+" JSON
+autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+" Python syntax
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=8
+let g:syntastic_python_checkers = ['pylint']
 let python_highlight_all = 1
 
-" Vala highlight: see https://wiki.gnome.org/Projects/Vala/Vim
-" Disable valadoc syntax highlight
-"let vala_ignore_valadoc = 1
+" JavaScript syntax
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal commentstring=//\ %s
+autocmd FileType javascript noremap <buffer> <leader>r :call JsBeautify()<cr>
+autocmd FileType javascript let b:javascript_fold = 0
+let javascript_enable_domhtmlcss=1
+"let g:syntastic_javascript_checkers = ['jshint'] 
+"let g:syntastic_javascript_jshint_args='--config ~/.vim/extern-cfg/jshint.json'
+let g:syntastic_javascript_checkers = ['eslint']
 
-" Enable comment strings
-let vala_comment_strings = 1
+" HTML
+autocmd FileType xml,html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+let g:syntastic_html_checkers = ['validator']
 
-" Highlight space errors
-let vala_space_errors = 1
-" Disable trailing space errors
-"let vala_no_trail_space_error = 1
-" Disable space-tab-space errors
-let vala_no_tab_space_error = 1
+" CSS
+autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType css setlocal commentstring=/*\ %s\ */
+autocmd FileType css noremap <buffer> <leader>r :call CSSBeautify()<cr>
 
-" Minimum lines used for comment syncing (default 50)
-"let vala_minlines = 120
-"
-" shell
-"set shell=/bin/zsh\ -i
+" Less
+autocmd FileType less setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+" Sass
+autocmd FileType scss setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+" Go
+autocmd BufNewFile,BufRead *.go setlocal ft=go
+autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" PowerShell
+autocmd BufRead,BufNewFile *.ps1,*.psm,*.psm1 setlocal expandtab shiftwidth=4 
+\ softtabstop=4 tabstop=8
+
