@@ -1,0 +1,6 @@
+XTerm*termName: xterm-256color
+XTerm*background: black
+XTerm*foreground: grey
+XTerm*faceName: Monospace Regular:size=12:antialias=false
+Xterm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+XTerm*selectToClipboard: true
