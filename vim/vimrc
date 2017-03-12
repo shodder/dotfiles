@@ -269,6 +269,23 @@ let javascript_enable_domhtmlcss=1
 "let g:syntastic_javascript_jshint_args='--config ~/.vim/extern-cfg/jshint.json'
 let g:syntastic_javascript_checkers = ['eslint']
 
+" backup local cwd
+" and change it to the directory of the current file
+let s:lcd = fnameescape(getcwd())
+silent! exec "lcd" expand('%:p:h')
+
+" detect shell and choose the command to find the eslint executable
+if &shell =~# 'fish'
+  let s:which_cmd = 'begin; set -lx PATH (npm bin --silent) $PATH; and which eslint; end'
+else
+  let s:which_cmd = 'PATH=$(npm bin --silent):$PATH && which eslint'
+endif
+
+" get the path of the eslint executable
+" and set it as a checker for the current buffer
+let s:eslint_path = system(s:which_cmd)
+let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
 " HTML
 autocmd FileType xml,html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 let g:syntastic_html_checkers = ['validator']
