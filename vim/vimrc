@@ -168,7 +168,7 @@ if has("gui_running")
   set guioptions -=r
   colorscheme base16-monokai
   if has('unix')
-    set guifont=Ubuntu\ Mono\ 13
+    set guifont=Monospace\ Regular\ 13
   else
     set guifont=Ubuntu_Mono:h13
   endif
@@ -284,7 +284,7 @@ endif
 " get the path of the eslint executable
 " and set it as a checker for the current buffer
 let s:eslint_path = system(s:which_cmd)
-let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 " HTML
 autocmd FileType xml,html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
