@@ -46,9 +46,6 @@ Plugin 'scrooloose/nerdcommenter'
 " Syntastic
 Plugin 'scrooloose/syntastic'
 
-" CloseTag
-Plugin 'vim-scripts/closetag.vim'
-
 " Airline
 Plugin 'bling/vim-airline'
 
@@ -60,6 +57,12 @@ Plugin 'hdima/python-syntax'
 
 " Window swapping
 "Plugin 'wesQ3/vim-windowswap'
+
+" HTML etc
+Plugin 'mattn/emmet-vim'
+
+" Tag closing
+Plugin 'alvan/vim-closetag'
 
 " All plugins must be added before this line
 call vundle#end()		" required
@@ -107,8 +110,8 @@ nmap <leader>l :set list!<CR>
 set listchars=tab:?\ ,eol:$
 
 " Make it obvious where 80 characters is
-"set textwidth=80
-" set colorcolumn=+1
+set textwidth=80
+set colorcolumn=+1
 
 " Open new splits panes to right and bottom
 set splitbelow
@@ -231,6 +234,9 @@ let g:NERDTreeChDirMode=2
 nmap <leader>ne :NERDTree<cr>
 nmap <leader>n :NERDTreeToggle<cr>
 
+" Tag closing file types
+let g:closetag_filenames = "*.html,*.xhtml,*.xml,*.jinja"
+
 " ----------------------------------------------------------------
 " Syntax Settings
 
@@ -291,7 +297,7 @@ autocmd FileType xml,html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=
 let g:syntastic_html_checkers = ['validator']
 
 " CSS
-autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType css setlocal expandtab shiftwidth=2 tabstop=4 softtabstop=2
 autocmd FileType css setlocal commentstring=/*\ %s\ */
 autocmd FileType css noremap <buffer> <leader>r :call CSSBeautify()<cr>
 
