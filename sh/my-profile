@@ -16,3 +16,9 @@ if [ -d "$HOME/.bin" ] ; then
   PATH="$PATH:$HOME/.bin"
 fi
 
+# load arch profile on arch!
+if [ -e /etc/arch-release ] ; then
+  source ~/.arch-profile
+fi
+
+
