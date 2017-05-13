@@ -10,6 +10,8 @@ alias go-ws='cd $WS'
 export DOTS=~/dotfiles
 alias go-dots='cd $DOTS'
 
+alias rmf='rm -f'
+
 if [ -d "$HOME/.local/bin" ] ; then
   PATH="$PATH:$HOME/.local/bin"
 fi
