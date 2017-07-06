@@ -4,10 +4,13 @@ export GIT_EDITOR=vim
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 
-export WS=~/workspace
-alias go-ws='cd $WS'
+export WS=/mnt/c/Users/mhr39349/workspace
+alias gws='cd $WS'
 export DOTS=~/dotfiles
-alias go-dots='cd $DOTS'
+alias gdots='cd $DOTS'
+export WINHOME=/mnt/c/Users/mhr39349
+alias gwinhome='cd $WINHOME'
+
 
 alias rmf='rm -f'
 
