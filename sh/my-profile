@@ -10,6 +10,7 @@ export DOTS=~/dotfiles
 alias gdots='cd $DOTS'
 export WINHOME=/mnt/c/Users/mhr39349
 alias gwinhome='cd $WINHOME'
+alias gvim='/mnt/c/gvim/gvim.exe'
 
 
 alias rmf='rm -f'
