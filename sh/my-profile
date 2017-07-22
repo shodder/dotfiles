@@ -6,7 +6,11 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 
 export WS=~/workspace
+alias go-ws='cd $WS'
 export DOTS=~/dotfiles
+alias go-dots='cd $DOTS'
+
+alias rmf='rm -f'
 
 if [ -d "$HOME/.local/bin" ] ; then
   PATH="$PATH:$HOME/.local/bin"
@@ -15,4 +19,10 @@ fi
 if [ -d "$HOME/.bin" ] ; then
   PATH="$PATH:$HOME/.bin"
 fi
+
+# load arch profile on arch!
+if [ -e /etc/arch-release ] ; then
+  source ~/.arch-profile
+fi
+
 
