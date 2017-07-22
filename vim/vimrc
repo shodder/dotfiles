@@ -290,7 +290,12 @@ endif
 " get the path of the eslint executable
 " and set it as a checker for the current buffer
 let s:eslint_path = system(s:which_cmd)
-let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+if has('unix')
+  let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+else
+  let g:syntastic_javascript_eslint_exec = 'C:\Users\mhr39349\AppData\Roaming\npm\eslint.cmd'
+endif
 
 " HTML
 autocmd FileType xml,html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
