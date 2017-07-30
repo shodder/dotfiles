@@ -6,9 +6,9 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 
 export WS=~/workspace
-alias go-ws='cd $WS'
+alias gws='cd $WS'
 export DOTS=~/dotfiles
-alias go-dots='cd $DOTS'
+alias gdots='cd $DOTS'
 
 alias rmf='rm -f'
 
