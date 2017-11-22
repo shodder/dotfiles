@@ -74,6 +74,9 @@ filetype plugin indent on	" required
 " ----------------------------------------------------------------
 " General Settings
 
+set fileformat=unix
+set fileformats=unix,dos
+
 " Autoreload .vimrc on edit
 autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost .vim/vimrc source %
