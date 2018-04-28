@@ -1,0 +1,43 @@
+
+if [ -d "$HOME/.local/bin" ] ; then
+  PATH="$PATH:$HOME/.local/bin"
+fi
+
+if [ -d "$HOME/.bin" ] ; then
+  PATH="$PATH:$HOME/.bin"
+fi
+
+if [ -f $HOME/dotfiles/sh/git-commands ]; then
+    source $HOME/dotfiles/sh/git-commands
+fi
+
+export EDITOR=vim
+export GIT_EDITOR=vim
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export CLICOLOR=1
+
+export DOTS=~/dotfiles
+alias dots='cd $DOTS'
+
+alias gvim='/mnt/c/gvim/gvim.exe'
+
+export WINHOME=/mnt/c/Users/mhr39349
+export WS=$WINHOME/workspace
+export SITES=$WS/isisbusapps/SISites
+export USERS=$WS/isisbusapps/Users
+export USEROFFICETOOLS=$WS/isisbusapps/UserOfficeTools
+export MESSAGES=$WS/isisbusapps/Messages
+export STAFFDETAILS=$WS/isisbusapps/StaffDetails
+export FBS=/mnt/c/fbs/Apps
+
+alias winhome='cd $WINHOME'
+alias ws='cd $WS'
+alias si='cd $SITES'
+alias users='cd $USERS'
+alias userofficetools='cd $USEROFFICETOOLS'
+alias messages='cd $MESSAGES'
+alias staffdetails='cd $STAFFDETAILS'
+alias fbs='cd $FBS'
+
+
+

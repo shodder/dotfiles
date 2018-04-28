@@ -1,18 +1,8 @@
 
-
 export EDITOR=vim
 export GIT_EDITOR=vim
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-export CLICOLOR=1
 export JAVA_HOME=/usr/lib/jvm/java-9-oracle
 export MAVEN_HOME=/usr/bin/mvn
-
-export WS=~/workspace
-alias gws='cd $WS'
-export DOTS=~/dotfiles
-alias gdots='cd $DOTS'
-
-alias rmf='rm -f'
 
 if [ -d "$HOME/.local/bin" ] ; then
   PATH="$PATH:$HOME/.local/bin"
@@ -26,5 +16,4 @@ fi
 if [ -e /etc/arch-release ] ; then
   source ~/.arch-profile
 fi
-
 
