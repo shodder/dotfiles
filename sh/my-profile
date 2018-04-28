@@ -1,6 +1,8 @@
 
 export EDITOR=vim
 export GIT_EDITOR=vim
+export JAVA_HOME=/usr/lib/jvm/java-9-oracle
+export MAVEN_HOME=/usr/bin/mvn
 
 if [ -d "$HOME/.local/bin" ] ; then
   PATH="$PATH:$HOME/.local/bin"

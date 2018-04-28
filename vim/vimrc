@@ -1,78 +1,80 @@
 
 set nocompatible
-
-" ----------------------------------------------------------------
-" vundle configuration starts here
-
 filetype off			" required
 
-" set the runtime path to include Vundle, and initialize Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" ----------------------------------------------------------------
+" Plug configuration starts here
 
-" Let vundle manage vundle.
-Plugin 'gmarik/Vundle.vim'
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+"   " - Avoid using standard Vim directory names like 'plugin'
+"   call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
+
 
 " fugitive - best git interface for vim
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Ctrl-P: buffer/file/mru/tag explorer with fuzzy text matching
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 " gundo - visualise the vim undo tree
-Plugin 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim'
 
 " flake8 - python syntax/style checker
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 
 " Base16 vim themes
-Plugin 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 
 " YCM - a fast, as-you-type, fuzzy-search code completion engine
-"Plugin 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 
 " Neocomplete - code completion
-Plugin 'Shougo/neocomplete.vim'
+Plug 'Shougo/neocomplete.vim'
 
 " Solarized colours
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 " NERDTree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " NERDCommenter
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " Syntastic
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Airline
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " GO plugin
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " Python syntax
-Plugin 'hdima/python-syntax'
+Plug 'hdima/python-syntax'
 
 " Window swapping
-"Plugin 'wesQ3/vim-windowswap'
+"Plug 'wesQ3/vim-windowswap'
 
 " HTML etc
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " Tag closing
-Plugin 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag'
 
 " All plugins must be added before this line
-call vundle#end()		" required
+call plug#end()		" required
 filetype plugin indent on	" required
 
-" vundle configuration ends here
+" plug configuration ends here
 " ----------------------------------------------------------------
 
 " ----------------------------------------------------------------
 " General Settings
+
+set fileformat=unix
+set fileformats=unix,dos
 
 " Autoreload .vimrc on edit
 autocmd! bufwritepost .vimrc source %
@@ -290,7 +292,12 @@ endif
 " get the path of the eslint executable
 " and set it as a checker for the current buffer
 let s:eslint_path = system(s:which_cmd)
-let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+if has('unix')
+  let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+else
+  let g:syntastic_javascript_eslint_exec = 'C:\Users\mhr39349\AppData\Roaming\npm\eslint.cmd'
+endif
 
 " HTML
 autocmd FileType xml,html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
@@ -310,11 +317,14 @@ autocmd FileType scss setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 " Go
 autocmd BufNewFile,BufRead *.go setlocal ft=go
 autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
 
 " PowerShell
 autocmd BufRead,BufNewFile *.ps1,*.psm,*.psm1 setlocal expandtab shiftwidth=4 
