@@ -28,6 +28,7 @@ alias gvim='/mnt/c/gvim/gvim.exe'
 
 export WINHOME=/mnt/c/Users/mhr39349
 export WS=$WINHOME/workspace
+export BUSAPPS=$WINHOME/workspace/isisbusapps
 export SITES=$WS/isisbusapps/SISites
 export USERS=$WS/isisbusapps/Users
 export USEROFFICETOOLS=$WS/isisbusapps/UserOfficeTools
@@ -37,6 +38,7 @@ export FBS=/mnt/c/fbs/Apps
 
 alias winhome='cd $WINHOME'
 alias ws='cd $WS'
+alias busapps='cd $BUSAPPS'
 alias si='cd $SITES'
 alias users='cd $USERS'
 alias userofficetools='cd $USEROFFICETOOLS'
