@@ -10,6 +10,9 @@ if [ -f $HOME/dotfiles/sh/git-commands ]; then
     source $HOME/dotfiles/sh/git-commands
 fi
 
+# Colours to get rid of folder backgrounds
+LS_COLORS="ow=01;36;40" && export LS_COLORS
+
 export EDITOR=vim
 export GIT_EDITOR=vim
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
