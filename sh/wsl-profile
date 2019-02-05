@@ -24,8 +24,6 @@ PATH=${MAVEN_HOME}/bin:${PATH}
 export DOTS=~/dotfiles
 alias dots='cd $DOTS'
 
-alias gvim='/mnt/c/gvim/gvim.exe'
-
 export WINHOME=/mnt/c/Users/mhr39349
 export WS=$WINHOME/workspace
 export BUSAPPS=$WINHOME/workspace/isisbusapps
