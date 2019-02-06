@@ -115,6 +115,8 @@ set listchars=tab:?\ ,eol:$
 set textwidth=80
 set colorcolumn=+1
 
+autocmd bufreadpre *.sh setlocal textwidth=160
+
 " Open new splits panes to right and bottom
 set splitbelow
 set splitright
