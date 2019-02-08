@@ -1,13 +1,14 @@
-if [ -d "$HOME/.local/bin" ] ; then
+if [[ -d "$HOME/.local/bin" ]] ; then
   PATH="$PATH:$HOME/.local/bin"
 fi
 
-if [ -d "$HOME/.bin" ] ; then
+if [[ -d "$HOME/.bin" ]] ; then
   PATH="$PATH:$HOME/.bin"
 fi
 
-if [ -f $HOME/dotfiles/sh/git-commands ]; then
-    source $HOME/dotfiles/sh/git-commands
+if [[ -d $HOME/dotfiles/git ]]; then
+    source $HOME/dotfiles/git/git-commands
+    source $HOME/dotfiles/git/github-releases.sh
 fi
 
 # Colours to get rid of folder backgrounds
