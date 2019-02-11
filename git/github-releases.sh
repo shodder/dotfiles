@@ -1,4 +1,3 @@
-
 gen-release-notes() {
 	echo "Creating release notes for..."
 	GITHUB_REPO=$(git config --get remote.origin.url | sed -n 's/^.*:\(.*\).git$/\1/p')
