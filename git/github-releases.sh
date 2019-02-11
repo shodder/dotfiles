@@ -15,7 +15,7 @@ gen-pr-list() {
 	GITHUB_REPO=$(git config --get remote.origin.url | sed -n 's/^.*:\(.*\).git$/\1/p')
 	git fetch
 	git log --merges --pretty=format:%s ...origin/master \
-	| sed -n 's/^Merge pull request #\([0-9]\{0,\}\).*isisbusapps\/\(.*\)/PR:\1 BRANCH:\2/p' \
+	| sed -n 's/^Merge pull request #\([0-9]\{0,\}\).*isisbusapps\/\(.*\)/PR:\1	BRANCH:\2/p' \
 	| sort -u
 }
 
