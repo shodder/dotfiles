@@ -1,3 +1,7 @@
+function git-delete-merged() {
+	t branch --merged | sed -n '/\(develop\|master\)/!p' | xargs -I {} git branch -d {}
+}
+
 alias gs='git status'
 alias gd='git diff'
 
