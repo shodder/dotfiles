@@ -7,7 +7,7 @@ if [[ -d "$HOME/.bin" ]] ; then
 fi
 
 if [[ -d $HOME/dotfiles/git ]]; then
-    source $HOME/dotfiles/git/git-commands
+    source $HOME/dotfiles/git/git-commands.sh
     source $HOME/dotfiles/git/github-releases.sh
     source $HOME/dotfiles/java/maven-project-creator.sh
 fi
