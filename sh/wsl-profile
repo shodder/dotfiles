@@ -25,10 +25,8 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 export MAVEN_HOME=/opt/maven
 export M2_HOME=/opt/maven
 PATH=${MAVEN_HOME}/bin:${PATH}
+export PAYARA_HOME=/mnt/c/payara/installations/current
 export PAYARA_DOMAINS=/mnt/c/payara/domains
-
-export DOTS=~/dotfiles
-alias dots='cd $DOTS'
 
 export WINHOME=/mnt/c/Users/mhr39349
 export WS=$WINHOME/workspace
@@ -39,7 +37,9 @@ export USEROFFICETOOLS=$WS/isisbusapps/UserOfficeTools
 export MESSAGES=$WS/isisbusapps/Messages
 export STAFFDETAILS=$WS/isisbusapps/StaffDetails
 export FBS=/mnt/c/fbs/Apps
+export DOTS=~/dotfiles
 
+alias dots='cd $DOTS'
 alias winhome='cd $WINHOME'
 alias ws='cd $WS'
 alias busapps='cd $BUSAPPS'
@@ -50,6 +50,4 @@ alias userofficetools='cd $USEROFFICETOOLS'
 alias messages='cd $MESSAGES'
 alias staffdetails='cd $STAFFDETAILS'
 alias fbs='cd $FBS'
-
-
 
