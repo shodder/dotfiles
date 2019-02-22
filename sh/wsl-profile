@@ -10,6 +10,8 @@ if [[ -d $HOME/dotfiles/git ]]; then
     source $HOME/dotfiles/git/git-commands.sh
     source $HOME/dotfiles/git/github-releases.sh
     source $HOME/dotfiles/java/maven-project-creator.sh
+    source $HOME/dotfiles/bus-apps/start-oracle.sh
+    source $HOME/dotfiles/bus-apps/payara-funcs.sh
 fi
 
 # Colours to get rid of folder backgrounds
@@ -25,8 +27,8 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 export MAVEN_HOME=/opt/maven
 export M2_HOME=/opt/maven
 PATH=${MAVEN_HOME}/bin:${PATH}
-export PAYARA_HOME=/mnt/c/payara/installations/current
-export PAYARA_DOMAINS=/mnt/c/payara/domains
+export PAYARA_BIN=/opt/payara/installations/current/payara41/bin
+export PAYARA_DOMAINS=/opt/payara/domains
 
 export WINHOME=/mnt/c/Users/mhr39349
 export WS=$WINHOME/workspace
@@ -50,4 +52,8 @@ alias userofficetools='cd $USEROFFICETOOLS'
 alias messages='cd $MESSAGES'
 alias staffdetails='cd $STAFFDETAILS'
 alias fbs='cd $FBS'
+
+
+
+
 
