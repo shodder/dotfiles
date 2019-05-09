@@ -1,0 +1,11 @@
+; #[Github-Issue-Num]: [Add/Fix/...] [Short Summary 50 chars max]
+
+
+; Why is it necessary? (Bug fix, feature, improvements?)
+-
+; How does the change address the issue?
+-
+; What side effects does this have?
+-
+; Fill in all relevant sections above, or remove the '-' lines where appropriate
+; Lines should be wrapped at 72 characters
