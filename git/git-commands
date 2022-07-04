@@ -2,7 +2,7 @@ function git-delete-merged() {
 	git branch --merged | sed -n '/\(develop\|master\)/!p' | xargs -I {} git branch -d {}
 }
 
-alias gs='git status'
+alias status='git status'
 alias gd='git diff'
 
 alias ga='git add'

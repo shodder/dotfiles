@@ -1,0 +1,21 @@
+
+# load git aliases and commands
+if [ -f "$HOME/dotfiles/git/git-commands" ] ; then
+    source "$HOME/dotfiles/git/git-commands"
+fi
+
+# load git aliases and commands
+if [ -f "$HOME/dotfiles/git/git-releases" ] ; then
+    source "$HOME/dotfiles/git/git-releases"
+fi
+
+# kube
+export KUBECONFIG_DEV="$HOME/.kubecfg/kubernetes-kubeconfig-dev"
+export KUBECONFIG_PROD="$HOME/.kubecfg/kubernetes-kubeconfig-prod"
+# DEFAULT - CONNECT TO DEV
+export KUBECONFIG=$KUBECONFIG_DEV
+
+
+
+# Just checking
+echo "Loaded shodders work profile\n\n"
