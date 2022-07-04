@@ -26,8 +26,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Work profile
-# set PATH so it includes user's private .local bin if it exists
+# load Work profile
 if [ -f "$HOME/dotfiles/bash/.work-profile" ] ; then
     source "$HOME/dotfiles/bash/.work-profile"
 fi
+
+EDITOR=vim
