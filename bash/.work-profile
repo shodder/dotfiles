@@ -15,7 +15,7 @@ export KUBECONFIG_PROD="$HOME/.kubecfg/kubernetes-kubeconfig-prod"
 # DEFAULT - CONNECT TO DEV
 export KUBECONFIG=$KUBECONFIG_DEV
 
-
-
 # Just checking
-echo "Loaded shodders work profile\n\n"
+echo "Loaded shodders work profile"
+echo 'Using kubeconf:' $KUBECONFIG'\n\n'
+
