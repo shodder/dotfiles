@@ -10,10 +10,13 @@ if [ -f "$HOME/dotfiles/git/git-releases" ] ; then
 fi
 
 # kube
-export KUBECONFIG_DEV="$HOME/.kubecfg/kubernetes-kubeconfig-dev"
-export KUBECONFIG_PROD="$HOME/.kubecfg/kubernetes-kubeconfig-prod"
+export KUBECONFIG_DEV_BLUE="$HOME/.kubecfg/kubernetes-kubeconfig-dev-blue"
+export KUBECONFIG_DEV_GREEN="$HOME/.kubecfg/kubernetes-kubeconfig-dev-green"
+export KUBECONFIG_PROD_BLUE="$HOME/.kubecfg/kubernetes-kubeconfig-prod-blue"
+export KUBECONFIG_PROD_GREEN="$HOME/.kubecfg/kubernetes-kubeconfig-prod-green"
+
 # DEFAULT - CONNECT TO DEV
-export KUBECONFIG=$KUBECONFIG_DEV
+export KUBECONFIG=$KUBECONFIG_DEV_BLUE
 
 # Just checking
 echo "Loaded shodders work profile"
