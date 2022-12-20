@@ -1,4 +1,3 @@
-
 # load git aliases and commands
 if [ -f "$HOME/dotfiles/git/git-commands" ] ; then
     source "$HOME/dotfiles/git/git-commands"
@@ -20,5 +19,5 @@ export KUBECONFIG=$KUBECONFIG_DEV_BLUE
 
 # Just checking
 echo "Loaded shodders work profile"
-echo 'Using kubeconf:' $KUBECONFIG'\n\n'
+echo "Using kubeconf: $KUBECONFIG \n\n"
 
