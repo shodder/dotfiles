@@ -9,9 +9,6 @@ fi
 if [[ -d $HOME/dotfiles/git ]]; then
     source $HOME/dotfiles/git/git-commands.sh
     source $HOME/dotfiles/git/github-releases.sh
-    source $HOME/dotfiles/java/maven-project-creator.sh
-    source $HOME/dotfiles/bus-apps/start-oracle.sh
-    source $HOME/dotfiles/bus-apps/payara-funcs.sh
 fi
 
 # Colours to get rid of folder backgrounds
