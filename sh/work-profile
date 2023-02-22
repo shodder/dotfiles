@@ -8,6 +8,11 @@ if [ -f "$HOME/dotfiles/git/git-releases" ] ; then
     source "$HOME/dotfiles/git/git-releases"
 fi
 
+# This setting makes OTHER_WRITABLE directories bold (1) and red (31)
+# This is to override the default horrible colours
+# Mostly to make working with Windows directories via WSL shells nicer
+LS_COLORS=$LS_COLORS':ow=1;31:'
+
 export EDITOR=vim
 export GIT_EDITOR=vim
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
