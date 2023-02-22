@@ -33,15 +33,9 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'prompt' \
+  'git' \
   'syntax-highlighting' \
-  'history-substring-search' \
-  'git'
-#
-# Autosuggestions
-#
-
-# Set the query found color.
-# zstyle ':prezto:module:autosuggestions:color' found ''
+  'history-substring-search'
 
 #
 # Editor
@@ -131,7 +125,6 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #   'main' \
 #   'brackets' \
 #   'pattern' \
-#   'line' \
 #   'cursor' \
 #   'root'
 #
