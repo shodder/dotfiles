@@ -27,8 +27,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # load Work profile
-if [ -f "$HOME/dotfiles/sh/.work-profile" ] ; then
-    source "$HOME/dotfiles/sh/.work-profile"
+if [ -f "$HOME/dotfiles/sh/work-profile" ] ; then
+    source "$HOME/dotfiles/sh/work-profile"
 fi
 
 EDITOR=vim

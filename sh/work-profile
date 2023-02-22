@@ -19,26 +19,26 @@ export CLICOLOR=1
 #export M2_HOME=/opt/maven
 #PATH=${MAVEN_HOME}/bin:${PATH}
 
+export DOTS=~/dotfiles
 
 export WINHOME=/mnt/c/Users/mhr39349
-export WS=$WINHOME/workspace
-export BUSAPPS=$WINHOME/workspace/isisbusapps
-export SITES=$WS/isisbusapps/SISites
-export USERS=$WS/isisbusapps/Users
-export USEROFFICETOOLS=$WS/isisbusapps/UserOfficeTools
-export MESSAGES=$WS/isisbusapps/Messages
-export STAFFDETAILS=$WS/isisbusapps/StaffDetails
+
+export PROG=/mnt/c/programming
+export BUSAPPS=$PROG/isisbusapps
+export SITES=$PROG/SISites
+export USERS=$PROG/Users
+export MESSAGES=$PROG/Messages
+export STAFFDETAILS=$PROG/StaffDetails
 export FBS=/mnt/c/fbs/Apps
-export DOTS=~/dotfiles
+
 
 alias dots='cd $DOTS'
 alias winhome='cd $WINHOME'
-alias ws='cd $WS'
+alias prog='cd $PROG'
 alias busapps='cd $BUSAPPS'
 alias ba='cd $BUSAPPS'
 alias si='cd $SITES'
 alias users='cd $USERS'
-alias userofficetools='cd $USEROFFICETOOLS'
 alias messages='cd $MESSAGES'
 alias staffdetails='cd $STAFFDETAILS'
 alias fbs='cd $FBS'
