@@ -48,6 +48,12 @@ alias messages='cd $MESSAGES'
 alias staffdetails='cd $STAFFDETAILS'
 alias fbs='cd $FBS'
 
+# Docker clean dangling images <none>:<none>
+# from https://projectatomic.io/blog/2015/07/what-are-docker-none-none-images/
+function docker-clean() {
+	docker rmi $(docker images -f "dangling=true" -q)
+}
+
 
 # kube
 export KUBECONFIG_DEV_BLUE="$HOME/.kubecfg/kubernetes-kubeconfig-dev-blue"
