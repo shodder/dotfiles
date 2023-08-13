@@ -56,13 +56,10 @@ function docker-clean() {
 
 
 # kube
-export KUBECONFIG_DEV_BLUE="$HOME/.kubecfg/kubernetes-kubeconfig-dev-blue"
-export KUBECONFIG_DEV_GREEN="$HOME/.kubecfg/kubernetes-kubeconfig-dev-green"
-export KUBECONFIG_PROD_BLUE="$HOME/.kubecfg/kubernetes-kubeconfig-prod-blue"
-export KUBECONFIG_PROD_GREEN="$HOME/.kubecfg/kubernetes-kubeconfig-prod-green"
+export KUBECONFIG_DEV="$HOME/.kubecfg/kubeconfig.dev-cluster"
 
 # DEFAULT - CONNECT TO DEV
-export KUBECONFIG=$KUBECONFIG_DEV_BLUE
+export KUBECONFIG=$KUBECONFIG_DEV
 
 # Just checking
 echo "Loaded shodders work profile"
