@@ -19,7 +19,10 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 
 # Java related bits
-#export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
+export STUDIO_JDK=/usr/lib/jvm/java-1.17.0-openjdk-amd64
+export JDK_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
+#export PATH=$JAVA_HOME/bin:$PATH
 #export MAVEN_HOME=/opt/maven
 #export M2_HOME=/opt/maven
 #PATH=${MAVEN_HOME}/bin:${PATH}
@@ -54,14 +57,34 @@ function docker-clean() {
 	docker rmi $(docker images -f "dangling=true" -q)
 }
 
+export DOCKER_BUILDKIT=1
+
 
 # kube
 export KUBECONFIG_DEV="$HOME/.kubecfg/kubeconfig.dev-cluster"
+export KUBECONFIG_PROD="$HOME/.kubecfg/kubeconfig.prod-cluster"
 
 # DEFAULT - CONNECT TO DEV
 export KUBECONFIG=$KUBECONFIG_DEV
 
+function switch-k8s() {
+    if [ $1 = 'd' ] ; then
+        export KUBECONFIG=$KUBECONFIG_DEV
+        echo "Switch to k8s dev: $KUBECONFIG"
+    elif [ $1 = 'p' ] ; then
+        export KUBECONFIG=$KUBECONFIG_PROD
+        echo "Switch to k8s prod: $KUBECONFIG"
+    else
+        echo "Didn't understand chose, k8s is still $KUBECONFIG"
+    fi
+}
+
+alias sk='switch-k8s'
+
+alias fbs='cd $FBS'
+
 # Just checking
 echo "Loaded shodders work profile"
 echo "Using kubeconf: $KUBECONFIG \n\n"
+
 
