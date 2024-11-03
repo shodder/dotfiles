@@ -1,0 +1,5 @@
+[Website](https://ohmyz.sh/)
+
+1. [Install via curl](https://ohmyz.sh/#install)
+1. Set zsh as default shell (part of install or manually). Need to log out and back in for change to be picked up.
+1. Symbolic link to .zshrc file `ln -s ~/dotfiles/zsh-oh-my-zsh/zshrc ~/.zshrc`

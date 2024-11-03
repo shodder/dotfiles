@@ -26,9 +26,18 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# load Work profile
-if [ -f "$HOME/dotfiles/sh/work-profile" ] ; then
-    source "$HOME/dotfiles/sh/work-profile"
+# load Git stuff
+if [ -f "$HOME/dotfiles/git/git-commands" ] ; then
+    source "$HOME/dotfiles/git/git-commands"
 fi
+
+# load Work profile
+if [ -d "/mnt/c/Users" ] ; then
+    echo 'I am at work'
+    source "$HOME/dotfiles/sh/work-profile"
+else
+    echo 'I am not at work!'
+fi
+
 
 EDITOR=vim
