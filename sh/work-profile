@@ -19,13 +19,22 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 
 # Java related bits
-export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
-export STUDIO_JDK=/usr/lib/jvm/java-1.17.0-openjdk-amd64
-export JDK_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
-#export PATH=$JAVA_HOME/bin:$PATH
-#export MAVEN_HOME=/opt/maven
-#export M2_HOME=/opt/maven
-#PATH=${MAVEN_HOME}/bin:${PATH}
+export JAVA_8=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_11=/usr/lib/jvm/java-11-openjdk-amd64
+export JAVA_17=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_21=/usr/lib/jvm/java-21-openjdk-amd64
+
+
+export JAVA_HOME=$JAVA_21
+export STUDIO_JDK=$JAVA_21
+export JDK_HOME=$JAVA_21
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Following https://medium.com/@vpriyanshu671/how-to-install-apache-maven-of-version-3-9-8-on-ubuntu-d47cf536db04
+export MAVEN_HOME=/opt/maven
+export M2_HOME=/opt/maven
+PATH=${MAVEN_HOME}/bin:$PATH
+PATH=${M2_HOME}/bin:$PATH
 
 export DOTS=~/dotfiles
 
