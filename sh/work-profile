@@ -69,9 +69,15 @@ function docker-clean() {
 export DOCKER_BUILDKIT=1
 
 
-# kube
-export KUBECONFIG_DEV="$HOME/.kubecfg/kubeconfig.dev-cluster"
-export KUBECONFIG_PROD="$HOME/.kubecfg/kubeconfig.prod-cluster"
+# k8s config - dev
+export KUBECONFIG_DEV="$HOME/.kubecfg/dev/dev-v3.kubeconfig"
+export KUBECONFIG_DEV_MAN="$HOME/.kubecfg/dev/management-v3.kubeconfig"
+export KUBECONFIG_DEV_LOADTEST="$HOME/.kubecfg/dev/load-testing-v3.kubeconfig"
+
+# k8s config - prod
+export KUBECONFIG_PROD="$HOME/.kubecfg/prod/prod-v4.kubeconfig"
+export KUBECONFIG_PROD_MAN="$HOME/.kubecfg/prod/management-prod-v3.kubeconfig"
+
 
 # DEFAULT - CONNECT TO DEV
 export KUBECONFIG=$KUBECONFIG_DEV
