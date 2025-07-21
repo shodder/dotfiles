@@ -103,3 +103,9 @@ echo "Loaded shodders work profile"
 echo "Using kubeconf: $KUBECONFIG \n\n"
 
 
+# Set some envs to use with docker (bypassing fba-compose)
+export FBA_COMPOSE_DIR=${FBA_COMPOSE_DIR:-/mnt/c/programming/docker-orchestration}
+export WINDOWS_HOST=$(ip route show | grep -i default | awk '{ print $3 }')
+export REPOS_ROOT_DIR=${REPOS_ROOT_DIR:-~/repos}
+export WIN_REPOS_ROOT_DIR=${WIN_REPOS_ROOT_DIR:-/mnt/c/programming}
+
