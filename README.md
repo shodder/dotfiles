@@ -1,12 +1,24 @@
-My dotfiles
+# My dotfiles
+`setup.sh` can be used to install and configure my common setup & tooling.
+Git will need to be installed and this repo cloned to `$HOME/dotfiles`
 
-Log for me :)
+Current set up on Linux/WSL is default shell of Fish using Starship prompt (to try it out)
+Backup/work is Zsh using Oh My Zsh
 
-2025-03-07:
-Setting up on 24.04
+## Tools I use (need install)
+Shells:
 
-2024-11-03:
-Removed zpretzo config (default is now oh-my-zsh)
-Removed unused git config files
-Improved loading of work profile
-Added some directory readme's
+[Fish]() shell
+[Starship] (https://starship.rs/)
+Bat (run as batcat) - alternative to `cat`
+lsd - alternative to ls
+btm - alternative resource monitor to top
+
+Zsh
+Oh-my-Zsh [Website](https://ohmyz.sh/)
+
+### Fish
+Install and set up using `bash fish/install-fish.sh`
+Comments & assumptions documented in the code.
+Follows fish standards for auto loading conf & functions.
+Doing it this way means there is no garuntee of load order, so confs/functions must not rely on each other at load time.

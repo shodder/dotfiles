@@ -1,4 +1,4 @@
-echo 'Loading Simons oh-my-posh config'
+#!/bin/bash
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -111,4 +111,4 @@ source $ZSH/oh-my-zsh.sh
 
 ## Load my standard profile
 ## Needs to be symlinked `ln -s ~/dotfiles/sh/profile ~/.profile`
-source ~/.profile
+source $HOME/.profile

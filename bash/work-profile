@@ -1,12 +1,5 @@
-# load git aliases and commands
-if [ -f "$HOME/dotfiles/git/git-commands" ] ; then
-    source "$HOME/dotfiles/git/git-commands"
-fi
 
-# load git aliases and commands
-if [ -f "$HOME/dotfiles/git/git-releases" ] ; then
-    source "$HOME/dotfiles/git/git-releases"
-fi
+#!/bin/bash
 
 # This setting makes OTHER_WRITABLE directories bold (1) and red (31)
 # This is to override the default horrible colours

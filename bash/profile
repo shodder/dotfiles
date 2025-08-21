@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -34,7 +36,7 @@ fi
 # load Work profile
 if [ -d "/mnt/c/Users" ] ; then
     echo 'I am at work'
-    source "$HOME/dotfiles/sh/work-profile"
+    source "$HOME/.work-profile"
 else
     echo 'I am not at work!'
 fi
