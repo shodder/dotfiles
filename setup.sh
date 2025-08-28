@@ -44,21 +44,32 @@ fi
 
 # Install the things if needed
 if [ $install = true ] ; then
-    # Install FISH for all (not local user)
-    echo "Installing fish..."
-    sudo apt install fish
-    
-    # Set Fish as default shell. This assumes fish is install for all (sudo apt install fish)
-    echo "Setting fish as default shell..."
-    chsh -s /usr/bin/fish 
-
-    echo "Installing Starship..."
-    curl -sS https://starship.rs/install.sh | sh
-    
+    # Install Zsh for all (not local user)
     echo "Installing Zsh..."
     sudo apt install zsh
     echo "Installing Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    
+    # Install some custom ZSH plugins
+    export ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
+
+    # Note:
+    # when cloning these repos on WSL, sometimes get Windows line endings
+    # If that happens go into the root dir of each plugin and run `find . -type f -print0 | xargs -0 dos2unix` to convert all files to unix line endings
+    #install zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    
+    #install zsh syntax highlighting
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+
+    # Set Zsh as default shell. This assumes fish is install for all (sudo apt install fish)
+    echo "Setting zsh as default shell..."
+    chsh -s /usr/bin/zsh 
+
+    echo "Installing Starship..."
+    curl -sS https://starship.rs/install.sh | sh
+      
 
     # Install some standard bits
     echo "Intalling tools..."
@@ -69,14 +80,11 @@ fi
 
 # Setup the symlinks things if needed
 if [ $symlinks = true ] ; then
-
-    echo "Setting up Fish config..."
-    bash $HOME/dotfiles/configure-fish.sh
-    
+   
     # Starship config
     echo "Setting up Starship config..."
     rm $HOME/.config/starship.toml
-    ln -s $HOME/dotfiles/starship/arship.toml $HOME/.config/starship.toml 
+    ln -s $HOME/dotfiles/starship/starship.toml $HOME/.config/starship.toml 
 
     # Set up my bash things and use zsh as my bash shell (backup/work shell)
     # clear out any symlinks/files to be replaced by my own
@@ -90,5 +98,8 @@ if [ $symlinks = true ] ; then
 
     rm $HOME/.zshrc
     ln -s $HOME/dotfiles/bash/zshrc $HOME/.zshrc
+
+    # echo "Setting up Fish config..."
+    # bash $HOME/dotfiles/configure-fish.sh
 fi
 

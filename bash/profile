@@ -28,11 +28,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# load Git stuff
-if [ -f "$HOME/dotfiles/git/git-commands" ] ; then
-    source "$HOME/dotfiles/git/git-commands"
-fi
-
 # load Work profile
 if [ -d "/mnt/c/Users" ] ; then
     echo 'I am at work'
@@ -41,5 +36,14 @@ else
     echo 'I am not at work!'
 fi
 
+# Make cat == batcat (pretty cat)
+# relies on batcat being installed (Ubuntu)
+# Save the original system `cat` under `rcat`
+alias rcat="$(which cat)"
+# For Ubuntu and Debian-based `bat` packages
+# the `bat` program is named `batcat` on these systems
+alias cat="$(which batcat)"
+export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export MANROFFOPT="-c"
 
 EDITOR=vim
