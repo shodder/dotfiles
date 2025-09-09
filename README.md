@@ -11,6 +11,7 @@ Oh-my-zsh & plugins
 Bat (run as batcat) - alternative to `cat`
 lsd - alternative to ls
 btm - alternative resource monitor to top
+Lazygit (https://github.com/jesseduffield/lazygit)
 
 
 ### Fish (alernate shell)
