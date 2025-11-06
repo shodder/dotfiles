@@ -90,6 +90,7 @@ export FBA_COMPOSE_DIR=${FBA_COMPOSE_DIR:-/mnt/c/programming/docker-orchestratio
 export WINDOWS_HOST=$(ip route show | grep -i default | awk '{ print $3 }')
 export REPOS_ROOT_DIR=${REPOS_ROOT_DIR:-~/repos}
 export WIN_REPOS_ROOT_DIR=${WIN_REPOS_ROOT_DIR:-/mnt/c/programming}
+export WIN_USER_DIR=$(wslpath "$(cmd.exe /c "echo %USERPROFILE%" 2>/dev/null | tr -d '\r')")
 
 # shortcut for running docker compose with correct compose/env files
 alias lc='docker compose -f $FBA_COMPOSE_DIR/docker-compose.yml --env-file $FBA_COMPOSE_DIR/.env'
