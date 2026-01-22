@@ -46,4 +46,6 @@ alias cat="$(which batcat)"
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export MANROFFOPT="-c"
 
+alias mk="$(which minikube)"
+
 EDITOR=vim
