@@ -60,7 +60,7 @@ export KUBECONFIG_DEV_LOADTEST="$HOME/.kubecfg/dev/load-testing-v3.kubeconfig"
 
 # k8s config - prod
 export KUBECONFIG_PROD="$HOME/.kubecfg/prod/prod-v4.kubeconfig"
-export KUBECONFIG_PROD="$HOME/.kubecfg/prod/prod-fallback.kubeconfig"
+export KUBECONFIG_PROD_FALLBACK="$HOME/.kubecfg/prod/prod-fallback.kubeconfig"
 export KUBECONFIG_PROD_MAN="$HOME/.kubecfg/prod/management-prod-v3.kubeconfig"
 
  k8s config - Infra
