@@ -48,4 +48,8 @@ export MANROFFOPT="-c"
 
 alias mk="$(which minikube)"
 
+# Docker alias
+alias docker-stop='docker stop "$(docker ps -q)"'
+alias ds=docker-stop
+
 EDITOR=vim
