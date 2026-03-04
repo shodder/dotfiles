@@ -14,8 +14,3 @@ btm - alternative resource monitor to top
 Lazygit (https://github.com/jesseduffield/lazygit)
 
 
-### Fish (alernate shell)
-Install and set up using `bash fish/install-fish.sh`
-Comments & assumptions documented in the code.
-Follows fish standards for auto loading conf & functions.
-Doing it this way means there is no garuntee of load order, so confs/functions must not rely on each other at load time.
