@@ -48,25 +48,17 @@ if [ $install = true ] ; then
     # Install Zsh for all (not local user)
     echo "Installing Zsh..."
     sudo apt install zsh
-    echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    
-    # Install some custom ZSH plugins
-    export ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 
-    # Note:
-    # when cloning these repos on WSL, sometimes get Windows line endings
-    # If that happens go into the root dir of each plugin and run `find . -type f -print0 | xargs -0 dos2unix` to convert all files to unix line endings
-    #install zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-    
-    #install zsh syntax highlighting
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-
-
-    # Set Zsh as default shell. This assumes fish is install for all (sudo apt install fish)
+    # Set Zsh as default shell. 
     echo "Setting zsh as default shell..."
     chsh -s /usr/bin/zsh 
+
+    # Install ZIM https://zimfw.sh/docs/
+    echo "Installing ZIM..."
+    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+    # use my own zimrc
+    rm $HOME/.zimrv
+    ln -s $HOME/dotfiles/bash/zimrc $HOME/.zimrc
 
     echo "Installing Starship..."
     curl -sS https://starship.rs/install.sh | sh
@@ -75,8 +67,9 @@ if [ $install = true ] ; then
     # Install some standard bits
     echo "Intalling tools..."
     sudo apt install bat 
-    sudo apt install lsd
-    sudo apt install btm
+    sudo apt install btop
+    sudo apt install fd-find 
+    sudo apt install ripgrep 
 
     echo "Installing Lazygit..."
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
@@ -84,6 +77,26 @@ if [ $install = true ] ; then
     tar xf lazygit.tar.gz lazygit
     sudo install lazygit -D -t /usr/local/bin/
     rm lazygit*
+
+    # Install zoxide https://github.com/ajeetdsouza/zoxide
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+    # install eza 
+    sudo mkdir -p /etc/apt/keyrings
+    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+    sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+    sudo apt update
+    sudo apt install -y eza
+
+    # Git will need to have been installed already
+    sudo apt install git-delta
+    git config --global core.pager delta
+    git config --global interactive.diffFilter 'delta --color-only'
+    git config --global delta.navigate true
+    git config --global delta.side-by-side true
+    git config --global merge.conflictStyle zdiff3
+
 fi
 
 # Setup the symlinks things if needed
@@ -107,7 +120,8 @@ if [ $symlinks = true ] ; then
     rm $HOME/.zshrc
     ln -s $HOME/dotfiles/bash/zshrc $HOME/.zshrc
 
-    # echo "Setting up Fish config..."
-    # bash $HOME/dotfiles/configure-fish.sh
+    rm $HOME/.zshenv
+    ln -s $HOME/dotfiles/bash/zshenv $HOME/.zshenv
+
 fi
 

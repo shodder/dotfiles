@@ -1,16 +1,19 @@
 # My dotfiles
-`setup.sh` can be used to install and configure my common setup & tooling.
-Git will need to be installed and this repo cloned to `$HOME/dotfiles`
+Before doing anything install Git!
+Clone this repo to `$HOME/dotfiles`
+Run `init.sh` can be used to install and configure my common setup & tooling.
 
-Current set up on Linux/WSL is default shell of Zsh using Starship prompt (to try it out)
 
-## Tools I use (need install)
-Zsh shell
-Oh-my-zsh & plugins
-[Starship] (https://starship.rs/)
-Bat (run as batcat) - alternative to `cat`
-lsd - alternative to ls
-btm - alternative resource monitor to top
-Lazygit (https://github.com/jesseduffield/lazygit)
+## My Shell
+Current set up on Linux/WSL is default shell of Zsh with [ZIM Framework](https://zimfw.sh/) and [Starship](https://starship.rs/) prompt (to try it out)
 
+## Tools I use (installed via `init.sh`)
+[Bat](https://github.com/sharkdp/bat) - alternative to `cat`
+[Lazygit](https://github.com/jesseduffield/lazygit)
+[fd-find](https://github.com/sharkdp/fd) - better searching than just `find`
+[ripgrep](https://github.com/BurntSushi/ripgrep) - better regex searching
+[zoxide](https://github.com/ajeetdsouza/zoxide) - directory navigation
+[eza](https://github.com/eza-community/eza) - directory listing
+[btop](https://github.com/aristocratos/btop) - resource monitoring
+[delta](https://github.com/dandavison/delta) - console git diff based on bat!
 

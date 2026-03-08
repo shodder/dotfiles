@@ -30,7 +30,6 @@ export MESSAGES=$PROG/Messages
 export STAFFDETAILS=$PROG/StaffDetails
 export FBS=/mnt/c/fbs/Apps
 
-
 alias dots='cd $DOTS'
 alias winhome='cd $WINHOME'
 alias prog='cd $PROG'
@@ -50,23 +49,19 @@ function docker-clean() {
 
 export DOCKER_BUILDKIT=1
 
-
 # k8s config - dev
 export KUBECONFIG_DEV="$HOME/.kubecfg/dev/dev-v3.kubeconfig"
 export KUBECONFIG_DEV_FALLBACK="$HOME/.kubecfg/dev/kubefallback.kubeconfig"
 export KUBECONFIG_DEV_MAN="$HOME/.kubecfg/dev/management-v3.kubeconfig"
 export KUBECONFIG_DEV_LOADTEST="$HOME/.kubecfg/dev/load-testing-v3.kubeconfig"
 
-
 # k8s config - prod
 export KUBECONFIG_PROD="$HOME/.kubecfg/prod/prod-v4.kubeconfig"
 export KUBECONFIG_PROD_FALLBACK="$HOME/.kubecfg/prod/prod-fallback.kubeconfig"
 export KUBECONFIG_PROD_MAN="$HOME/.kubecfg/prod/management-prod-v3.kubeconfig"
 
- k8s config - Infra
+# k8s config - Infra
 export KUBECONFIG_INFRA="$HOME/.kubecfg/infra/infra-v2.kubeconfig"
-
-
 
 # DEFAULT - CONNECT TO DEV
 export KUBECONFIG=$KUBECONFIG_DEV
