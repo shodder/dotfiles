@@ -46,7 +46,6 @@ export MANROFFOPT="-c"
 # alias for fd
 alias fd=fdfind
 
-
 alias mk="$(which minikube)"
 
 # Docker alias
@@ -56,54 +55,12 @@ alias ds=docker-stop
 # This setting makes OTHER_WRITABLE directories bold (1) and red (31)
 # This is to override the default horrible colours
 # Mostly to make working with Windows directories via WSL shells nicer
-LS_COLORS=$LS_COLORS':ow=1;31:'
+# LS_COLORS=$LS_COLORS':ow=1;31:'
 
 export EDITOR=vim
 export GIT_EDITOR=vim
 # make grep results RED
 export GREP_OPTIONS='--color=auto' GREP_COLOR='mt=1;32'
 
-####### EZA CONFIG #######
-# eza config (ls replacement) https://codywilliamson.com/blog/eza-technical-reference/
-# Grid views
-# Replace ls with eza
-alias ls='eza'
-
-# Long format with headers and icons
-alias ll='eza -l --header --icons'
-
-# Long format including hidden files
-alias la='eza -l -a --group --total-size --header --icons'
-
-# Tree view shortcut
-alias tree='eza --tree'
-
-alias el='eza --icons --group-directories-first --header '
-alias ela='eza -a --icons --group-directories-first --header '
-
-# Minimal list views (size, relative date, name)
-alias ell='eza -l --icons --group-directories-first --no-permissions --no-user --time-style=relative --header '
-alias ella='eza -la --icons --group-directories-first --no-permissions --no-user --time-style=relative --header '
-
-# Full list views (permissions, user, long timestamps)
-alias elll='eza -l --header --icons --group-directories-first --time-style=long-iso --header '
-alias ellla='eza -la --header --icons --group-directories-first --time-style=long-iso --header '
-
-# Sorted views
-alias elt='eza -l --icons --group-directories-first --no-permissions --no-user --time-style=relative --sort=modified --header '
-alias els='eza -l --icons --group-directories-first --no-permissions --no-user --time-style=relative --sort=size --header '
-
-# Git status views
-alias elg='eza -l --icons --git --group-directories-first --no-permissions --no-user --time-style=relative --header'
-alias elga='eza -la --icons --git --group-directories-first --no-permissions --no-user --time-style=relative --header'
-
-# Tree views
-alias t='eza --tree -L 2 --icons --group-directories-first --header '
-alias tt='eza --tree -L 4 --icons --group-directories-first --header '
-
-# Filters
-alias eld='eza --icons --group-directories-first --only-dirs --header '
-alias elf='eza --icons --group-directories-first --only-files --header '
-
-
-####### EZA CONFIG END #######
+# set up eza aliases
+source ~/dotfiles/eza/eza-config
