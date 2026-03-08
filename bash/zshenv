@@ -1,0 +1,2 @@
+# for ZIM framework to stop loading auto complete twice - see https://github.com/zimfw/zimfw/wiki/Troubleshooting#completion-is-not-working
+skip_global_compinit=1
