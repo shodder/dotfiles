@@ -16,4 +16,5 @@ Current set up on Linux/WSL is default shell of Zsh with [ZIM Framework](https:/
 [eza](https://github.com/eza-community/eza) - directory listing  
 [btop](https://github.com/aristocratos/btop) - resource monitoring  
 [delta](https://github.com/dandavison/delta) - console git diff based on bat!  
+[dust](https://github.com/bootandy/dust)
 

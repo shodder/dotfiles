@@ -97,6 +97,9 @@ if [ $install = true ] ; then
     git config --global delta.side-by-side true
     git config --global merge.conflictStyle zdiff3
 
+    # install Dust
+    curl -sSfL https://raw.githubusercontent.com/bootandy/dust/refs/heads/master/install.sh | sh
+
 fi
 
 # Setup the symlinks things if needed
