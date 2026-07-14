@@ -47,6 +47,13 @@ function docker-clean() {
 	docker rmi $(docker images -f "dangling=true" -q)
 }
 
+# Stop all running containers
+function docker-stop-all() {
+	docker stop $(docker ps -q)
+}
+
+alias dsa='docker-stop-all'
+
 export DOCKER_BUILDKIT=1
 
 # k8s config - dev
@@ -96,3 +103,9 @@ export WIN_USER_DIR=$(wslpath "$(cmd.exe /c "echo %USERPROFILE%" 2>/dev/null | t
 
 # shortcut for running docker compose with correct compose/env files
 alias lc='docker compose -f $FBA_COMPOSE_DIR/docker-compose.yml --env-file $FBA_COMPOSE_DIR/.env'
+
+# If using NVM for node version management
+# Follow this: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
