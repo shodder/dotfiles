@@ -9,44 +9,44 @@
 #umask 022
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+  # include .bashrc if it exists
+  if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+  fi
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "$HOME/bin" ]; then
+  PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private .local bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
 # load Work profile
-if [ -d "/mnt/c/Users" ] ; then
-    echo 'I am at work'
-    source "$HOME/.work-profile"
+if [ -d "/mnt/c/Users" ]; then
+  echo 'I am at work'
+  source "$HOME/.work-profile"
 else
-    echo 'I am not at work!'
+  echo 'I am not at work!'
 fi
 
 # Make cat == batcat (pretty cat)
 # relies on batcat being installed (Ubuntu)
 # Save the original system `cat` under `rcat`
-alias rcat="$(which cat)"
+alias rcat='$(which cat)'
 # For Ubuntu and Debian-based `bat` packages
 # the `bat` program is named `batcat` on these systems
-alias cat="$(which batcat)"
+alias cat='$(which batcat)'
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export MANROFFOPT="-c"
 
 # alias for fd
 alias fd=fdfind
 
-alias mk="$(which minikube)"
+alias mk='$(which minikube)'
 
 # Docker alias
 alias docker-stop='docker stop "$(docker ps -q)"'

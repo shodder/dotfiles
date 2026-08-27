@@ -1,5 +1,5 @@
 name: Bash Lint & Format Check
-
+run-name: ${{ github.actor }} is running ${{ github.workflow }} 
 on:
   push:
     branches: [main]
