@@ -44,7 +44,7 @@ fi
 
 # Install the things if needed
 if [ $install = true ] ; then
-    cd ~
+    cd ~ || exit
     # Install Zsh for all (not local user)
     echo "Installing Zsh..."
     sudo apt install zsh
@@ -57,8 +57,8 @@ if [ $install = true ] ; then
     echo "Installing ZIM..."
     curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
     # use my own zimrc
-    rm $HOME/.zimrv
-    ln -s $HOME/dotfiles/bash/zimrc $HOME/.zimrc
+    rm "$HOME/.zimrv"
+    ln -s "$HOME/dotfiles/bash/zimrc $HOME/.zimrc"
 
     echo "Installing Starship..."
     curl -sS https://starship.rs/install.sh | sh
@@ -107,24 +107,24 @@ if [ $symlinks = true ] ; then
    
     # Starship config
     echo "Setting up Starship config..."
-    rm $HOME/.config/starship.toml
-    ln -s $HOME/dotfiles/starship/starship.toml $HOME/.config/starship.toml 
+    rm "$HOME/.config/starship.toml"
+    ln -s "$HOME/dotfiles/starship/starship.toml" "$HOME/.config/starship.toml"
 
     # Set up my bash things and use zsh as my bash shell (backup/work shell)
     # clear out any symlinks/files to be replaced by my own
-    rm $HOME/.bashrc
-    rm $HOME/.profile
-    rm $HOME/.work-profile
+    rm "$HOME/.bashrc"
+    rm "$HOME/.profile"
+    rm "$HOME/.work-profile"
     # Create symlinks
-    ln -s $HOME/dotfiles/bash/bashrc $HOME/.bashrc
-    ln -s $HOME/dotfiles/bash/profile $HOME/.profile
-    ln -s $HOME/dotfiles/bash/work-profile $HOME/.work-profile
+    ln -s "$HOME/dotfiles/bash/bashrc $HOME/.bashrc"
+    ln -s "$HOME/dotfiles/bash/profile $HOME/.profile"
+    ln -s "$HOME/dotfiles/bash/work-profile $HOME/.work-profile"
 
-    rm $HOME/.zshrc
-    ln -s $HOME/dotfiles/bash/zshrc $HOME/.zshrc
+    rm "$HOME/.zshrc"
+    ln -s "$HOME/dotfiles/bash/zshrc $HOME/.zshrc"
 
-    rm $HOME/.zshenv
-    ln -s $HOME/dotfiles/bash/zshenv $HOME/.zshenv
+    rm "$HOME/.zshenv"
+    ln -s "$HOME/dotfiles/bash/zshenv $HOME/.zshenv"
 
 fi
 
