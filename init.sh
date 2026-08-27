@@ -20,7 +20,7 @@ while [[ $# -gt 0 ]]; do
       shift # past argument
       # shift # past value if you want to 
       ;;
-    -*|--*)
+    -*)
       echo "Unknown option $1"
       exit 1
       ;;
@@ -58,7 +58,7 @@ if [ $install = true ] ; then
     curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
     # use my own zimrc
     rm "$HOME/.zimrv"
-    ln -s "$HOME/dotfiles/bash/zimrc $HOME/.zimrc"
+    ln -s "$HOME/dotfiles/bash/zimrc" "$HOME/.zimrc"
 
     echo "Installing Starship..."
     curl -sS https://starship.rs/install.sh | sh
@@ -116,15 +116,15 @@ if [ $symlinks = true ] ; then
     rm "$HOME/.profile"
     rm "$HOME/.work-profile"
     # Create symlinks
-    ln -s "$HOME/dotfiles/bash/bashrc $HOME/.bashrc"
-    ln -s "$HOME/dotfiles/bash/profile $HOME/.profile"
-    ln -s "$HOME/dotfiles/bash/work-profile $HOME/.work-profile"
+    ln -s "$HOME/dotfiles/bash/bashrc" "$HOME/.bashrc"
+    ln -s "$HOME/dotfiles/bash/profile" "$HOME/.profile"
+    ln -s "$HOME/dotfiles/bash/work-profile" "$HOME/.work-profile"
 
     rm "$HOME/.zshrc"
-    ln -s "$HOME/dotfiles/bash/zshrc $HOME/.zshrc"
+    ln -s "$HOME/dotfiles/bash/zshrc" "$HOME/.zshrc"
 
     rm "$HOME/.zshenv"
-    ln -s "$HOME/dotfiles/bash/zshenv $HOME/.zshenv"
+    ln -s "$HOME/dotfiles/bash/zshenv" "$HOME/.zshenv"
 
 fi
 
