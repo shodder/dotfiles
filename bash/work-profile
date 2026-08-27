@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Java related bits
@@ -6,7 +5,6 @@ export JAVA_8=/usr/lib/jvm/java-8-openjdk-amd64
 export JAVA_11=/usr/lib/jvm/java-11-openjdk-amd64
 export JAVA_17=/usr/lib/jvm/java-17-openjdk-amd64
 export JAVA_21=/usr/lib/jvm/java-21-openjdk-amd64
-
 
 export JAVA_HOME=$JAVA_21
 export STUDIO_JDK=$JAVA_21
@@ -44,12 +42,12 @@ alias fbs='cd $FBS'
 # Docker clean dangling images <none>:<none>
 # from https://projectatomic.io/blog/2015/07/what-are-docker-none-none-images/
 function docker-clean() {
-	docker rmi $(docker images -f "dangling=true" -q)
+  docker rmi $(docker images -f "dangling=true" -q)
 }
 
 # Stop all running containers
 function docker-stop-all() {
-	docker stop $(docker ps -q)
+  docker stop $(docker ps -q)
 }
 
 alias dsa='docker-stop-all'
@@ -74,15 +72,15 @@ export KUBECONFIG_INFRA="$HOME/.kubecfg/infra/infra-v2.kubeconfig"
 export KUBECONFIG=$KUBECONFIG_DEV
 
 function switch-k8s() {
-    if [ $1 = 'd' ] ; then
-        export KUBECONFIG=$KUBECONFIG_DEV
-        echo "Switch to k8s dev: $KUBECONFIG"
-    elif [ $1 = 'p' ] ; then
-        export KUBECONFIG=$KUBECONFIG_PROD
-        echo "Switch to k8s prod: $KUBECONFIG"
-    else
-        echo "Didn't understand chose, k8s is still $KUBECONFIG"
-    fi
+  if [ $1 = 'd' ]; then
+    export KUBECONFIG=$KUBECONFIG_DEV
+    echo "Switch to k8s dev: $KUBECONFIG"
+  elif [ $1 = 'p' ]; then
+    export KUBECONFIG=$KUBECONFIG_PROD
+    echo "Switch to k8s prod: $KUBECONFIG"
+  else
+    echo "Didn't understand chose, k8s is still $KUBECONFIG"
+  fi
 }
 
 alias sk='switch-k8s'
@@ -92,7 +90,6 @@ alias fbs='cd $FBS'
 # Just checking
 echo "Loaded shodders work profile"
 echo "Using kubeconf: $KUBECONFIG \n\n"
-
 
 # Set some envs to use with docker (bypassing fba-compose)
 export FBA_COMPOSE_DIR=${FBA_COMPOSE_DIR:-/mnt/c/programming/docker-orchestration}
@@ -107,5 +104,5 @@ alias lc='docker compose -f $FBA_COMPOSE_DIR/docker-compose.yml --env-file $FBA_
 # If using NVM for node version management
 # Follow this: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
