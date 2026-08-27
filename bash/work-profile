@@ -89,15 +89,16 @@ alias fbs='cd $FBS'
 
 # Just checking
 echo "Loaded shodders work profile"
-echo "Using kubeconf: $KUBECONFIG \n\n"
+echo "Using kubeconf: $KUBECONFIG"
 
 # Set some envs to use with docker (bypassing fba-compose)
 export FBA_COMPOSE_DIR=${FBA_COMPOSE_DIR:-/mnt/c/programming/docker-orchestration}
-export WINDOWS_HOST=$(ip route show | grep -i default | awk '{ print $3 }')
+win_host="$(ip route show | grep -i default | awk '{ print $3 }')"
+export WINDOWS_HOST="$win_host"
 export REPOS_ROOT_DIR=${REPOS_ROOT_DIR:-~/repos}
 export WIN_REPOS_ROOT_DIR=${WIN_REPOS_ROOT_DIR:-/mnt/c/programming}
-WINDOWS_USER_DIR==$(wslpath "$(cmd.exe /c "echo %USERPROFILE%" 2>/dev/null | tr -d '\r')")
-export WIN_USER_DIR="$WINDOWS_USER_DIR"
+win_home_dir="$(wslpath "$(cmd.exe /c "echo %USERPROFILE%" 2>/dev/null | tr -d '\r')")"
+export WIN_USER_DIR="$win_home_dir"
 
 # shortcut for running docker compose with correct compose/env files
 alias lc='docker compose -f $FBA_COMPOSE_DIR/docker-compose.yml --env-file $FBA_COMPOSE_DIR/.env'
