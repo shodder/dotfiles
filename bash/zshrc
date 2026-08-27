@@ -67,7 +67,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ZIM_HOME="${ZDOTDIR:-${HOME}}/.zim"
 # Download zimfw plugin manager if missing.
 if [[ ! -e "${ZIM_HOME}/zimfw.zsh" ]]; then
-  if (( ${+commands[curl]} )); then
+  if command -v curl &> /dev/null; then
     curl -fsSL --create-dirs -o "${ZIM_HOME}/zimfw.zsh" \
         https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
   else
