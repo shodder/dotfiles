@@ -7,7 +7,7 @@ on:
 
 jobs:
   sh-checker:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, X64] # runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
