@@ -49,8 +49,20 @@ alias fd=fdfind
 alias mk='$(which minikube)'
 
 # Docker alias
-alias docker-stop='docker stop "$(docker ps -q)"'
-alias ds=docker-stop
+# Docker clean dangling images <none>:<none>
+# from https://projectatomic.io/blog/2015/07/what-are-docker-none-none-images/
+function docker-clean() {
+  docker rmi "$(docker images -f "dangling=true" -q)"
+}
+
+# Stop all running containers
+function docker-stop-all() {
+  docker stop "$(docker ps -q)"
+}
+
+alias dk-sa='docker-stop-all'
+alias dk-cl='docker-clean'
+alias dk='docker'
 
 # This setting makes OTHER_WRITABLE directories bold (1) and red (31)
 # This is to override the default horrible colours
