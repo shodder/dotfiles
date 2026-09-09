@@ -1,7 +1,12 @@
 # My dotfiles
 Before doing anything install Git!  
 Clone this repo to `$HOME/dotfiles`  
+My work profile is private and loaded as a git submodule so use this command:
+`git clone --recurse-submodules git@github.com:shodder/dotfiles.git`
+
 Run `init.sh` can be used to install and configure my common setup & tooling.
+
+
 
 
 ## My Shell

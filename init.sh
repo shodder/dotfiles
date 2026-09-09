@@ -116,7 +116,7 @@ if [ $symlinks = true ]; then
   # Create symlinks
   ln -s "$HOME/dotfiles/bash/bashrc" "$HOME/.bashrc"
   ln -s "$HOME/dotfiles/bash/profile" "$HOME/.profile"
-  ln -s "$HOME/dotfiles/bash/work-profile" "$HOME/.work-profile"
+  ln -s "$HOME/dotfiles/work/work-profile" "$HOME/.work-profile"
 
   rm "$HOME/.zshrc"
   ln -s "$HOME/dotfiles/bash/zshrc" "$HOME/.zshrc"
