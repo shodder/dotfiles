@@ -39,7 +39,6 @@ alias messages='cd $MESSAGES'
 alias staffdetails='cd $STAFFDETAILS'
 alias fbs='cd $FBS'
 
-
 export DOCKER_BUILDKIT=1
 
 # k8s config - dev
